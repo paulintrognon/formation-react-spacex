@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CardMedia, CardContent, Typography, CardActions, IconButton, Card } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite'
+import { isFavorite, toggleFavorite } from '../services/favoriteService';
+
+function getFavoriteIconColor(launch) {
+  if (isFavorite(launch)) {
+    return 'primary';
+  }
+  return 'disabled';
+}
 
 function Launch({ launch }) {
+  const [favoriteIconColor, setFavoriteIconColor] = useState(getFavoriteIconColor(launch));
+
+  const handleAddToFavorites = () => {
+    toggleFavorite(launch)
+    setFavoriteIconColor(getFavoriteIconColor(launch))
+  }
+
   return (
     <Card className="Launch">
       <CardMedia
@@ -19,8 +34,8 @@ function Launch({ launch }) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon color='disabled' />
+        <IconButton aria-label="add to favorites" onClick={handleAddToFavorites}>
+          <FavoriteIcon color={favoriteIconColor} />
         </IconButton>
       </CardActions>
     </Card>
