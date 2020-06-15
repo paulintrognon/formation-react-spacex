@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
-import Launch from '../../components/Launch';
-import { CircularProgress } from '@material-ui/core';
+import Launches from '../../components/Launches';
 
 function HomePage() {
   const [launches, setLaunches] = useState();
@@ -15,13 +14,7 @@ function HomePage() {
 
   return (
     <div className="Launches">
-      <div className="LaunchesList">
-        {
-          launches
-            ? launches.map(launch => <Launch key={launch.flight_number} launch={launch} />)
-            : <CircularProgress />
-        }
-      </div>
+      <Launches launches={launches} />
     </div>
   )
 }

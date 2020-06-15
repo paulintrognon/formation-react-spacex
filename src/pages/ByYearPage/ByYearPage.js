@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { CircularProgress } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
-import Launch from '../../components/Launch';
+import axios from 'axios';
+import Launches from '../../components/Launches';
 
 function ByYearPage({ match }) {
   const { year } = match.params
@@ -17,13 +16,7 @@ function ByYearPage({ match }) {
 
   return (
     <div className="Launches">
-      <div className="LaunchesList">
-        {
-          launches
-            ? launches.map(launch => <Launch key={launch.flight_number} launch={launch} />)
-            : <CircularProgress />
-        }
-      </div>
+      <Launches launches={launches} />
     </div>
   );
 }
