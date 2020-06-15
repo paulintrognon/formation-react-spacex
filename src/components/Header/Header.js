@@ -16,6 +16,7 @@ function Header() {
         <div style={{color: 'white'}}>
           <Button component={Link} to="/" color="inherit">Tous</Button>
           <Button component={Link} to="/année/2020" color="inherit">2020</Button>
+          <Button component={Link} to="/favoris" color="inherit">Favoris</Button>
         </div>
       </Toolbar>
     </AppBar>

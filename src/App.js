@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage'
 import ByYearPage from './pages/ByYearPage/ByYearPage';
+import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import Header from './components/Header/Header'
 import './App.css';
 
@@ -17,6 +18,9 @@ function App() {
               </Route>
               <Route exact path="/année/:year">
                 <ByYearPage />
+              </Route>
+              <Route exact path="/favoris">
+                <FavoritesPage />
               </Route>
             </Switch>
         </main>
